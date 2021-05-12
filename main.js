@@ -3,8 +3,9 @@
 const button = document.querySelector('.js-button');
 const inputNumber = document.querySelector('.js-num');
 const clueElement = document.querySelector('.js-clue');
-
 const inputCounter = document.querySelector('.js-counter');
+
+const randomNumber = getRandomNumber(100);
 
 //genera nº aleatorio
 function getRandomNumber(max) {
@@ -13,15 +14,12 @@ function getRandomNumber(max) {
 
 console.log(`EL número aleatorio es ${getRandomNumber(100)}`);
 
-const randomNumber = getRandomNumber(100);
-
 
 //genera comprobación juego
 function guessNumber() {
     const inputNumValue = inputNumber.value;
     const toNum = parseInt(inputNumValue);
     console.log(toNum);
-
 
     if (toNum === randomNumber) {
         clueElement.innerHTML = '¡Has ganado campeona!';
@@ -34,8 +32,6 @@ function guessNumber() {
     }
 }
 
-
-
 // función contador
 let attempts = 0;
 
@@ -44,6 +40,9 @@ function countAttempts() {
     let inputCountValue = inputCounter.value;
     inputCountValue = attempts; 
 }
+
+
+countAttempts(attempts);
 
 
 button.addEventListener('click', guessNumber);
